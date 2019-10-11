@@ -1,0 +1,39 @@
+#include <iostream>
+//sheet_3 pb_9
+//This Program Calculates the factorial
+//Knowing That The Max Value an Integer Can Hold is 2147483647
+//Given it's an Integer the Max Value to Calculate its Factorial is 16
+
+using namespace std;
+
+int main()
+{
+
+
+        int n;
+        int product = 1;
+        cout << "enter a number to calculate its factorial btw 1 & 16" << endl;
+        cin >> n;
+       for( int i = 1; i <= n ; i++)
+            product *= i;
+
+
+
+        cout << "the factorial of " << n << " is " << product << endl;
+
+
+    return 0;
+
+}
+//Calculates Max Value
+        /*int i;
+        int product = 1;
+        for( i = 1; true ; i++)
+        {
+            product *= i;
+            if(product >= 2147483647 || product <= 0 )
+                break;
+        }
+
+        cout << "i is " << i << endl;
+        //output 17 */
