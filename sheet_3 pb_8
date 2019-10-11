@@ -1,0 +1,37 @@
+#include <iostream>
+//sheet_3 pb_8
+//This program Takes some scores btw 0 and 100 And Prints the Average, Maximum, and Minimum Values
+
+using namespace std;
+
+int main()
+{
+    int score =0 , num = 0;
+    int  maximum = 0 , minimum = 100;
+    float total =0;
+    float average;
+    while( (score >= 0 || score <= 100))
+    {
+        cout<<"enter score(from 0 to 100) or -1 to print results "<< endl;
+        cin>> score;
+        if(score == -1)
+            break;
+        num ++;
+        total += score;
+        if (score >= maximum)
+            maximum = score;
+        if (score <= minimum)
+            minimum = score;
+    }
+    if (num != 0)
+    {
+        average = total / num;
+        cout << "the average is " << average << endl;
+        cout << "the maximum is " << maximum<< endl;
+        cout << "the minimum is " << minimum<< endl;
+    }
+
+
+    return 0;
+
+}
