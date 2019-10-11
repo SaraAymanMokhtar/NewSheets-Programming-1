@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+//sheet_3 pb_9'
+
+using namespace std;
+
+int main()
+{
+    float A = 52 , B = 85, year = 1;;
+    while(true)
+    {
+        A = 52 * pow(1.06, year);
+        B = 85 * pow(1.04, year);
+        cout << "Population A after " << year << " year is " << 52 * pow(1.06, year)<< endl;
+        cout << "Population B after " << year << " year is " << 85 * pow(1.04, year)<< endl;
+        if (A > B)
+        {
+            cout << endl<< "Population A needs " << year << " year to exceed Population B" <<endl;
+            break;
+        }
+        year++;
+    }
+    return 0;
+
+}
