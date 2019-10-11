@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath>
+//sheet_3 pb_10
+//This Program Draws a Diamond Shape
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "enter the height of the diamond (odd number)" << endl;
+    cin >> n;
+    for(int i = 0; i < n ; i++)
+    {
+        //Calculates the Distance From  Center in Each Line
+        int distance = abs(i - n / 2) ;
+        //Calculates the Number of Stars in Each Line
+        int num_stars = abs(n - distance * 2);
+        //Calculates the Number of Spaces in Each Line Before '*'
+        for(int j = 0; j < distance ; j++)
+            cout<< " ";
+        //Calculates the Number of '*' in Each Line
+        for(int j = 0; j < num_stars  ; j++)
+            cout<< "*";
+        //Calculates the Number of Spaces in Each Line After '*'
+        for(int j = 0; j < distance ; j++)
+            cout<< " ";
+        cout<<endl;
+    }
+
+    return 0;
+}
