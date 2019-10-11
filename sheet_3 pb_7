@@ -1,5 +1,5 @@
 #include <iostream>
-//sheet_3 pb_8
+//sheet_3 pb_7
 //This program Takes some scores btw 0 and 100 And Prints the Average, Maximum, and Minimum Values
 
 using namespace std;
