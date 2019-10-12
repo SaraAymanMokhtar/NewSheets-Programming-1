@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath>
+
+//sheet_3 pb_3b
+//A Program That Calculate The Value of A Series
+
+using namespace std;
+
+int main()
+{
+    float n;
+    float output = 0;
+    cin>> n;
+    for(float i = 1 ; i <= n; i++)
+    {
+        output += 1 / i;
+    }
+    cout<< output <<endl;
+    return 0 ;
+
+}
