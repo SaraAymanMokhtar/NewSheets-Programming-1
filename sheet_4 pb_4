@@ -1,0 +1,28 @@
+#include <iostream>
+
+
+using namespace std;
+void countyflippy(int x);
+
+int main()
+
+{
+    int x;
+    cout << "enter a number to count its digits and print them in reverse order "<< endl;
+    cin >> x;
+    countyflippy(x);
+    return 0;
+}
+void countyflippy(int x)
+{
+
+    int digits = 0;
+    while( x > 0)
+    {
+        cout << x % 10;
+        x /= 10;
+        digits ++;
+    }
+    cout << " no of digits is " << digits << endl;
+
+}
