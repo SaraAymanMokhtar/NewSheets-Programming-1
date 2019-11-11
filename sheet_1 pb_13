@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip>
+//sheet_1 pb_13
+using namespace std;
+
+int main()
+{
+
+    cout << 1990 << setw(4) << 135 << endl;
+    cout << 1991 << setw(5) << 7290 << endl;
+    cout << 1992 << setw(6) << 11300 << endl;
+    cout << 1993 << setw(6) << 16200 << endl;
+
+
+
+    return 0;
+}
