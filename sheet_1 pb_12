@@ -1,0 +1,16 @@
+#include <iostream>
+
+//sheet_1 pb_12
+using namespace std;
+
+int main()
+{
+    char c;
+    cout << "enter a character "<< endl;
+    cin >> c ;
+    cout << "its decimal value equals " << std::dec << int(c) << endl;
+    cout << "its hexadecimal value equals " << hex << int(c) << endl;
+
+
+    return 0;
+}
