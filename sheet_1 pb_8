@@ -1,0 +1,15 @@
+#include <iostream>
+#define FOOT2METER 0.3048
+//sheet_1 pb_8
+using namespace std;
+
+int main()
+{
+    double disFeet;
+    cout<< "enter the distance in feet"<< endl;
+    cin >> disFeet;
+    cout << "The distance in meters is  " << disFeet * FOOT2METER << endl;
+
+
+    return 0;
+}
