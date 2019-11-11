@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    const float PI = 3.1415;
+    char letter;
+    float s, r, l, w;
+    cout << "input 1,2 or 3 to output the Area & perimeter of rectangle, square or circle respectively  \n";
+    cin >> letter;
+    switch (letter)
+    {
+        case 2 :
+            cout << "input side length  \n";
+            cin >> s;
+            cout << "the perimeter is " << s * 4 << endl << "the area is " << s * s << endl;
+            break;
+
+        case 3 :
+            cout << "input radius  \n";
+            cin >> r;
+            cout << "the circumference is " << PI * r * 2 << endl << "the area is " << PI * pow(r , 2) << endl;
+            break;
+
+        case 1 :
+            cout << "input length \n";
+            cin >> l;
+            cout << "input width \n";
+            cin >> w;
+            cout << "the perimeter is " << (l + w) * 2 << endl << "the area is " << l * w << endl;
+            break;
+
+        default:
+            cout << "unrecognized input  \n";
+            break;
+
+    }
+}
