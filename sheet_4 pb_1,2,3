@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+// Sheet 4 Question 1, 2 & 3
+int prime (int x);
+int fact(int x);
+float calculate(int s,int r);
+int main()
+{
+    int x, y, s, r;
+    cout << " Q1 enter a positive number " << endl;
+    cin>> x;
+    cout<< prime(x)<< endl;
+    cout << " Q2 enter a positive number " << endl;
+    cin>> y;
+    cout<< fact(y)<< endl;
+    cout << " Q3 enter  s and r (where s is bigger than r) " << endl;
+    cin>> s>> r;
+    cout<< calculate(s,r)<< endl;
+    return 0;
+}
+int prime (int x)
+{
+    for(int i = 2; i < x; i++)
+    {
+        if(x % i == 0)
+            return 0;
+    }
+    return 1;
+}
+int fact(int x)
+{
+    int product = 1;
+    for(int i = 1; i <= x; i++  )
+    {
+        product *= i;
+    }
+    return product;
+}
+float calculate(int s, int r)
+{
+    float num, den;
+    num = fact(s);
+    den = fact(r)*fact(s-r);
+    return num / den;
+}
