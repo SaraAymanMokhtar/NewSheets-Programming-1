@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+int kthDigit(int n , int k);
+int main()
+{
+    int n, k;
+    cout << "Enter a number" << endl;
+    cin >> n;
+    cout << "Enter the kth digit you want" << endl;
+    cin >> k;
+    cout << kthDigit(n , k) << endl;
+    return 0;
+}
+kthDigit(int n ,int k)
+{
+    n = n / pow(10 , k - 1);
+    return n % 10;
+}
