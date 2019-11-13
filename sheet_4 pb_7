@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+
+// I have no idea weather this solution is correct or not
+
+using namespace std;
+double noTermsPI ();
+int main()
+{
+
+    cout << "the number of terms is " << endl;
+    cout << noTermsPI() << endl;
+
+    return 0;
+}
+double noTermsPI ()
+{
+    double PI = 0, i = 0;
+    double num, deno;
+    do{
+            num = pow(-1, i ) * 4;
+            deno = 2 * i + 1;
+            PI = PI + num / deno;
+            i = i + 1;
+
+    } while ( fabs (PI - 3.14159)  >= 0.00001);
+    return i - 1 ;
+}
