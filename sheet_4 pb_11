@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+const double e = 2.71828;
+using namespace std;
+double result(int x);
+int main()
+{
+    int x;
+    cout << "enter the value of x in the formula"<< endl;
+    cin >> x;
+    cout<< result(x)<< endl;
+    return 0;
+}
+double result(int x)
+{
+    double sum = 0;
+    for( int i = 0 ; i < 100; i++)
+    {
+        sum = sum + pow(e, - x * i);
+    }
+    return sum;
+}
+
+
