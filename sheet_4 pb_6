@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+double noTerms ();
+int main()
+{
+
+    cout << "the number of terms is " << endl;
+    cout << noTerms() << endl;
+
+    return 0;
+}
+double noTerms ()
+{
+    double sum = 0, i = 1;
+    do{
+        sum = sum + 1 / i;
+        i = i + 1;
+    } while (sum + 1 / i <= 2);
+    return i - 1;
+}
