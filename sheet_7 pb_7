@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+long power (long n, long p);
+
+int main()
+{
+    int p , n;
+    cout<< "enter a number and its power" << endl;
+    cin>> n >> p;
+    cout << power(n , p) << endl;
+    return 0;
+}
+long power (long n, long p)
+{
+    if (p == 0)
+        return 1;
+    else
+        return n* power (n , p - 1);
+}
+
