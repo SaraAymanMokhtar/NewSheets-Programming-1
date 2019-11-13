@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+char toUpper (char c);
+char toLower (char c);
+int main()
+{
+    char c;
+    cout << "Enter a character " << endl;
+    cin>> c;
+    if (islower(c))
+        cout<< toUpper(c)<<endl;
+    if (isupper(c))
+        cout << toLower(c)<< endl;
+
+    return 0;
+}
+char toUpper (char c)
+{
+    return c  + ('A' - 'a');
+}
+char toLower (char c)
+{
+    return c  + ('a' - 'A') ;
+}
