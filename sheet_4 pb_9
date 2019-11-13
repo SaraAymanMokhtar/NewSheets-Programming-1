@@ -1,0 +1,24 @@
+#include <iostream>
+
+
+using namespace std;
+int noCaps();
+int main()
+{
+    cout << noCaps() << endl;
+
+    return 0;
+}
+noCaps()
+{
+    int counter = 0;
+    for(int i = 0 ; i < 100 ; i ++)
+    {
+        char c = cin.get();
+        if((c > 'A' || c == 'A') && (c < 'Z' || c == 'Z'))
+            counter ++;
+        if (c == '.')
+            break;
+    }
+    return counter ;
+}
