@@ -14,14 +14,14 @@ int main()
         //Calculates the Distance From  Center in Each Line
         int distance = abs(i - n / 2) ;
         //Calculates the Number of Stars in Each Line
-        int num_stars = abs(n - distance * 2);
+        int num_stars = n - distance * 2;
         //Prints the Number of Spaces in Each Line Before '*'
         for(int j = 0; j < distance ; j++)
             cout<< " ";
         //Prints the Number of '*' in Each Line
         for(int j = 0; j < num_stars  ; j++)
             cout<< "*";
-        
+
         cout<<endl;
     }
 
