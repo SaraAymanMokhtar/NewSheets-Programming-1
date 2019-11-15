@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    int x , y;
+    double x , y;
     char c;
     cout << "input two numbers" << endl;
     cin >> x >> y;
@@ -39,4 +39,5 @@ int main()
         default:
             cout << "you entered an invalid output";
             break;
+    }
     }
