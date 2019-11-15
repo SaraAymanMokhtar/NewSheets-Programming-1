@@ -1,0 +1,30 @@
+#include <iostream>
+
+
+using namespace std;
+
+
+int main()
+{
+    int letters = 0 , words = 0;
+    char c , prev;
+
+    while( (c = cin.get()) != '\n')
+    {
+        if ( 'a'<= c &&  'z' >= c || 'A'<= c &&  'Z' >= c )
+            letters ++;
+        else if (c == ' ' &&  isalpha( prev ))
+            words ++;
+
+        prev = c;
+    }
+
+
+
+
+    if (letters == 0)
+        cout << " character = 0 and letters = 0";
+    else
+        cout << "letters: " << letters << endl;
+        cout << "words: " << words + 1 << endl;
+}
