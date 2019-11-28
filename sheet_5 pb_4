@@ -1,0 +1,103 @@
+#include <iostream>
+
+using namespace std;
+double average(const int a[] , int sz);
+int maximum(const int a[] , int sz);
+int minimum(const int a[] , int sz);
+double median (const int a[] , int sz);
+void bubbleSort(int a[] , int sz);
+int mode(const int a[] , int sz);
+
+// sheet_5 pb_4
+int main()
+{
+    const int sz = 6;
+    int a[sz] = {5,1,1,2,1,2};
+    cout << endl << "the average of the array is " << average (a, sz) << endl ;
+    cout << endl << "the maximum of the array is " << maximum (a, sz) << endl ;
+    cout << endl << "the minimum of the array is " << minimum (a, sz) << endl ;
+    cout << endl << "the median of the array is " << median (a, sz) << endl ;
+    cout << endl << "the sorted array: " << endl;
+    bubbleSort(a , sz);
+    for (int i = 0; i < sz ; i ++)
+        cout << a[i];
+    cout<< endl;
+    cout << endl << "the mode of the array is (work correctly only if there is mode) " << mode (a, sz) << endl ;
+
+    return 0;
+}
+double average(const int a[] , int sz)
+{
+    int sum = 0 ;
+    for (int i = 0 ; i < sz ; i++)
+        sum += a[i];
+    return static_cast<double> (sum) / sz ;
+}
+int maximum(const int a[] , int sz)
+{
+    int maximum = a[0];
+    for(int i = 1 ; i < sz ; i++)
+    {
+        if (a[i]>  maximum)
+            maximum = a[i];
+    }
+    return maximum ;
+}
+int minimum(const int a[] , int sz)
+{
+    int minimum = a[0];
+    for(int i = 1 ; i < sz ; i++)
+    {
+        if (a[i] <  minimum )
+            minimum = a[i];
+    }
+    return minimum ;
+}
+double median (const int a[] , int sz)
+{
+    if ( sz % 2 != 0)
+        return a [sz / 2];
+    else
+        return ( a[ sz / 2] + a[(sz / 2) - 1] )/ 2.0 ;
+
+}
+
+void bubbleSort(int a[] , int sz)
+{
+    for (int i = 0 ; i < sz -1 ; i++)
+    {
+        for (int j = 0 ; j < sz - 1 ; j++)
+        {
+            if (a[j] > a [j + 1])
+            {
+                int temp = a [j + 1];
+                a [j + 1] = a [j];
+                a [ j ] = temp;
+            }
+        }
+
+    }
+}
+int mode(const int a[] , int sz)
+{
+    int freq[sz] = {0};
+    for (int i = 0; i < sz; i ++)
+    {
+        freq[a[i]]++;
+    }
+    int maximum = freq[a[0]];
+    int index = a[0];
+    for(int j =1 ; j < sz; j++)
+    {
+        if (freq[a[j]] > maximum )
+        {
+             maximum = freq[a[j]];
+             index = a[j];
+        }
+
+
+    }
+    return index;
+}
+
+
