@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+ // sheet_5 pb_7
+
+int main()
+{
+    // to check try resetting size to smaller value and test
+    const int sz = 250;
+    int a[sz];
+    for(int i = 0 ; i < sz ; i++)
+    {
+        cin >> a[i];
+    }
+    int index = -1;
+    for(int j = 0 ; j < sz ; j ++)
+    {
+        if (a[j] == 12)
+        {
+            cout << "the index where 12 first appeared: " << j;
+            break;
+        }
+
+    }
+    for(int j = sz - 1 ; j > -1 ; j -- )
+    {
+        if (a[j] == 12)
+        {
+            index = j;
+            cout << "the index where 12 lastly appeared: " << j;
+            break;
+        }
+
+    }
+
+
+    if(index == -1)
+    {
+        cout << endl << " WARNING 12 doesn't exist ! " << endl;
+    }
+
+  return 0;
+}
