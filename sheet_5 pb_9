@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+// edited to print a given index in the Fibonacci Sequence 
+
+int main()
+{
+    cout << endl << "question 9" << endl;
+    double fibonacci[100] = {1,1};
+    for(int i = 2 ; i < 100; i++)
+    {
+        fibonacci [i]= fibonacci[i-1] + fibonacci [i -2];
+
+    }
+    int k;
+    cout << "enter the index btw 1 and 100"<< endl;
+    cin >> k;
+    cout << endl<< fibonacci[k -1];
+
+
+    return 0; 
+}
