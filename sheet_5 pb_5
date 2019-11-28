@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-// edited to print a given index in the Fibonacci Sequence
+
 
 int main()
 {
