@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+// edited to print a given index in the Fibonacci Sequence
+
+int main()
+{
+    // try odd and even sized array 
+    const int sz = 9;
+    int a[sz]= {1,2,3,4,5,6,7,8,9};
+    int sum = 0;
+    for (int i = 0; i < sz; i+= 2)
+         sum += a[i];
+    // (size + 1) / 2   bec if given odd sized array, then 9 / 2 = 4 (but I actually have five elements)
+    cout << "the average of even index: " <<  static_cast<double> (sum) / ( (sz + 1) / 2 ) << endl;
+    sum = 0;
+    for (int i = 1; i < sz; i+= 2)
+         sum += a[i];
+    cout << "the average of even index: " << static_cast<double> (sum) / ( sz /2 ) << endl;
+
+  return 0;
+}
