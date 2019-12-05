@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+// adding a string to string
+int main()
+{
+   char s1[]= "life is a  horrible place";
+   char s2[]= "very";
+   int index = 10;
+   int sz_2 = strlen(s2);
+   int sz_1 = strlen(s1);
+   
+   //declaring an array with its new size
+   char a[sz_2 + sz_1 + 1];
+   
+   //copying the part of s1 that's before the index  to array a 
+   for (int i = 0; i < index; i++)
+   {
+       a[i] = s1[i];
+   }
+   
+  //adding string 2 at the index to array a
+   for(int i = 0; i < sz_2 ; i++)
+   {
+       a[index + i] = s2[i];
+   }
+   
+   // adding the rest of s1 to array a
+   for (int i = 0 ; i < sz_1 - index + 1 ; i++)
+   {
+       a [i + sz_2 + index] = s1[ index + i];
+   }
+
+   cout << a;
+    return 0;
+}
