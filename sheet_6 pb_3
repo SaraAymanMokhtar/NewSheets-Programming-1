@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+    int freq_o = 0, freq_a = 0, freq_u = 0, freq_e = 0 , freq_i = 0;
+
+    char s[100];
+    cin.getline(s, 100, '\n');
+    cout << endl;
+    int sz = strlen(s);
+    for(int i = 0 ; i < sz; i++)
+    {
+        switch (s[i])
+        {
+        case 'A' :
+        case 'a' :
+            freq_a ++;
+            break;
+        case 'O' :
+        case 'o' :
+            freq_o ++;
+            break;
+        case 'E':
+        case 'e' :
+            freq_e ++;
+            break;
+        case 'U':
+        case 'u':
+            freq_u ++;
+            break;
+        case 'I':
+        case 'i' :
+            freq_i ++;
+            break;
+        defaul:
+            break;
+
+        }
+    }
+    cout << "the sum of a || A: " << freq_a << endl;
+    cout << "the sum of i || I: " << freq_i << endl;
+    cout << "the sum of U || u: " << freq_u<< endl;
+    cout << "the sum of O || o: " << freq_o<< endl;
+    cout << "the sum of E || e: " << freq_e << endl;
+
+    return 0;
+}
