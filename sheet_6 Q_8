@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    char s[1000];
+    char *s2 = "programming";
+    cin.getline(s, 1000, '\n');
+    char *tok = strtok(s, " ");
+    int counter = 0;
+
+    while (tok != NULL)
+    {
+        if (strcmp (tok , s2 ) == 0)
+            counter ++;
+        //It's very crucial to put the call at the end (directly before checking the condition)
+        //else it used to work code lines with null pointer causing it to terminate w/ values other than 0
+        tok = strtok (NULL, " ");
+
+    }
+    cout << "the word programming is repeated " << counter << " times " <<endl;
+    return 0;
+}
