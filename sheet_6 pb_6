@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+// for the tok always use char * and try using square bracket for the string
+int main()
+{
+    char s[100];
+    cin.getline(s, 100, '\n');
+    char *tok = strtok(s, " ");
+    int words = 0;
+    while(tok != NULL)
+    {
+        tok = strtok(NULL, " ");
+        words ++;
+    }
+    cout << words << endl;
+
+
+    return 0;
+}
