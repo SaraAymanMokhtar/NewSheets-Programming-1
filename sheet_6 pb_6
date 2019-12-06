@@ -2,20 +2,27 @@
 #include <cstring>
 
 using namespace std;
-// for the tok always use char * and try using square bracket for the string
+
 int main()
 {
-    char s[100];
-    cin.getline(s, 100, '\n');
-    char *tok = strtok(s, " ");
-    int words = 0;
-    while(tok != NULL)
-    {
-        tok = strtok(NULL, " ");
-        words ++;
-    }
-    cout << words << endl;
+    char s1[100] ,s2[100];
+    cin.getline(s1, 100, '\n');
+    cin.getline(s2, 100, '\n');
+    int sz_1 = strlen(s1);
+    int sz_2 = strlen(s2);
+    char a[sz_1+sz_2+1];
+    for (int i = 0; i <sz_1; i++)
+        a[i] = s1[i];
+    for(int j = 0 ; j <= sz_2; j++)
+        a[sz_1 + j] = s2[j];
+    cout << a;
 
 
     return 0;
 }
+//When it's allowed to use pre made libraries
+   /* char s[100] ,c[100];
+    cin.getline(s, 100, '\n');
+    cin.getline(c, 100, '\n');
+    cout << strcat(s,c)<<endl;
+    */
