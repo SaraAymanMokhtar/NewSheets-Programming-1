@@ -1,0 +1,93 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+void myStrCpy(char des[], const char src[]);
+int myStrlen(const char str[]);
+int myStrCmp(const char s1[],const char s2[]);
+int atoi(const char s3[]);
+
+int main()
+{
+    //9.a
+    char src[100];
+    char des[100];
+    cout <<"9.a enter the string to be copied " << endl;
+    cin.getline(src, 100, '\n');
+    myStrCpy( des ,src );
+    cout << des << endl;
+    
+    //9.b
+    char str[100];
+    cout <<"9.b enter the string to calculate its length " << endl;
+    cin.getline(str, 100, '\n');
+    cout << "the size of the string is " << myStrlen (str) << endl;
+    
+    //9.c
+    char s1[100];
+    char s2[100];
+    cout <<"9.c enter two strings to be compared " << endl;
+    cout << "s1: " ;
+    cin >> s1;
+    cout << endl << "s2: ";
+    cin >> s2;
+    cout<< myStrCmp(s1,s2) << endl;
+    
+    //9.d
+    char s3[100] = "1234";
+    cout<< atoi(s3);
+
+
+    return 0;
+}
+
+void myStrCpy(char des[], const char src[])
+{
+    int i = 0  ;
+    while(src[i] != NULL)
+    {
+        des[i] = src[i];
+        i++;
+    }
+    des[i] = NULL;
+}
+
+int myStrlen(const char str[])
+{
+    int i = 0;
+    while (str[i] != NULL)
+        i++;
+    return i ;
+
+}
+
+int myStrCmp(const char s1[],const char s2[])
+{
+
+    int sz1 = myStrlen(s1);
+
+    for(int i = 0 ; i <= sz1; i++)
+    {
+        if(s1[i] > s2[i])
+            return 1;
+        if(s1[i] < s2[i])
+            return -1;
+
+    }
+    return 0 ;
+}
+//NOTE #1 : in order for pow to work correctly use double with sum then cast to return an int
+//NOTE #2 : -'0' to shift since character '1' does not map to number 1 in ascii code
+int atoi(const char s3[])
+{
+    int sz3 = myStrlen(s3);
+    double sum = 0;
+    for (int i = 0 ; i < sz3; i++)
+    {
+        sum += (s3[i] - '0') * pow(10, sz3 - i - 1);
+    }
+
+    return  static_cast<int>(sum);
+
+}
+
