@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cstring>
+#include <iomanip>
+using namespace std;
+
+void addm (const float A[][3], const float B[][3], float C[][3]);
+void subm (const float A[][3], const float B[][3], float c[][3]);
+// sheet 8_Q3
+//write a program that adds and subtracts 3 x 3 matrix
+int main()
+{
+    float A[][3]= {{1,2,3},{4,5,6}, {7,8,9}};
+    float B[][3]= {{1,2,3},{4,5,6}, {7,8,9}};
+    float C[3][3];
+
+    addm(A,B,C);
+    cout << endl << "the result after addition " << endl;
+    for(int i = 0 ; i < 3; i ++)
+    {
+
+        for(int j = 0; j < 3; j ++)
+             cout << left << setw(5) << C [i][j]  ;
+
+        cout << endl;
+    }
+
+    subm(A, B, C);
+    cout << endl << "the result after subtraction " << endl;
+    for(int i = 0 ; i < 3; i ++)
+    {
+
+        for(int j = 0; j < 3; j ++)
+            cout << left << setw(5) << C [i][j]  ;
+
+        cout << endl;
+    }
+
+
+    return 0;
+}
+void addm (const float A[][3], const float B[][3], float C[][3])
+{
+    for(int i = 0 ; i < 3; i++)
+        for (int j = 0; j < 3; j ++)
+            C[i][j] = A[i][j] + B[i][j];
+}
+void subm (const float A[][3], const float B[][3], float C[][3])
+{
+    for(int i = 0 ; i < 3; i++)
+        for (int j = 0; j < 3; j ++)
+            C[i][j] = A[i][j] - B[i][j];
+}
