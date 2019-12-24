@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+// sheet 8_Q1
+//write a program that reads 10 student names in an array and print each name in a line
+int main()
+{
+    int nums = 10;
+    int letters= 100;
+    char names[nums][letters];
+
+    for(int i = 0; i < nums; i ++)
+        cin.getline(names[i], letters, '\n');
+
+    cout <<  endl << "the  out put is " << endl << endl;
+
+    for(int j = 0 ; j < nums ; j++)
+        cout << names[j] << endl;
+    return 0;
+}
