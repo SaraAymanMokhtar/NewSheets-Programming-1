@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+// sheet 8_Q2
+//write a program that sorts a list of names
+
+int main()
+{
+    int names = 10;
+    int letters = 100;
+    char us[names][letters] = {"sama" , "sara" , "raghad", "laila", "nada", "aseel" , "mona", "amany", "rasha", "doaa"};
+    for(int i = 0; i < names - 1 ; i ++)
+    {
+
+        for(int j = i ; j < names - 1; j++)
+        {
+
+            if(strcmp(us[i] , us[j + 1]) > 0)
+            {
+                char temp[letters];
+                strcpy(temp, us[i]);
+                strcpy(us[i], us[j + 1]);
+                strcpy (us[ j + 1], temp);
+            }
+        }
+
+    }
+
+        for (int j = 0; j < names; j ++)
+            cout<< us[j] << endl;;
+
+    return 0;
+}
