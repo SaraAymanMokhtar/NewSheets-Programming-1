@@ -1,0 +1,42 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+
+using namespace std;
+
+
+// sheet 8_Q8
+//Didn't make sure the answer is correct with a test
+// but overall it makes sense compared to the answer sheet
+
+int main()
+{
+    int A[100][100];
+    int counter = 0;
+
+    for(int i = 1; i < 99; i++)
+        for(int j = 1; j < 99; j++)
+        {
+            if( A[i][j] < A[i-1][j-1] &&
+                A[i][j] < A[i-1][j] &&
+                A[i][j] < A[i-1][j+1] &&
+                A[i][j] < A[i+1][j-1] &&
+                A[i][j] < A[i+1][j] &&
+                A[i][j] < A[i+1][j+1] &&
+                A[i][j] < A[i][j-1] &&
+                A[i][j] < A[i][j+1]  )
+                        counter ++;
+        }
+
+
+
+
+    cout << endl<<"the condition exists :" << endl;
+    cout << setw(10) << left << counter ;
+
+
+
+
+    return 0;
+}
+
