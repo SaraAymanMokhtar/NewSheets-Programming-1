@@ -1,0 +1,38 @@
+#include <iostream>
+#include <iomanip>
+
+
+using namespace std;
+
+
+// sheet 8_Q7
+//Let a be an N x N square matrix array : 1) find the number of zero elements
+//2) the product of diagonal elements
+int main()
+{
+    int const A[4][4]= {{1,2,0,4}, {5,6,7,0}, {0,10,11,12}, {13,0,15,16}};
+
+    double product = 1;
+    for(int i = 0 , j = 0; j < 4; j++, i++)
+        product *= static_cast<double> (A[i][j]);
+    cout << "the product of the diagonal elements is " << endl;
+    cout << setw(10) << left << product ;
+
+    int noZeros = 0;
+    for(int i = 0 ; i < 4; i++)
+        for(int j = 0; j < 4; j++)
+        {
+           if (A[i][j]==0)
+                noZeros ++;
+
+        }
+
+    cout << endl<<"the number of zeros in the matrix is:" << endl;
+    cout << setw(10) << left << noZeros ;
+
+
+
+
+    return 0;
+}
+
