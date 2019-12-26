@@ -30,3 +30,162 @@ int GetValues (char *Text, double *Values)
 
     return nValues;
 }
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+void print_contact(int);
+bool stringContains(char item[], char keyword[]);
+
+const int CONTACTS = 100;
+char numbers[CONTACTS][50];
+char names[CONTACTS][50];
+
+int main()
+{
+	char choice[15];
+
+	cout << "Enter command: (add) (delete) (update) (search) (display) (exit)" << endl;
+	cin.getline(choice, 15);
+	//cin.ignore();
+	while (strcmp(choice, "exit") != 0) 
+	{
+		// add
+		if (strcmp(choice, "add") == 0)
+		{
+			cout << endl;
+			for(int i=0; i < CONTACTS;i++) 	// loop in all contacts until it finds an empty contact
+				if (numbers[i][0] == '\0') {
+					cout << "Please enter new contact number" << endl;
+					cin.getline(numbers[i], 50);
+					//cin >> numbers[i];
+					cout << "Please enter new contact name" << endl;
+					cin.getline(names[i], 50);
+					//cin >> names[i];
+					break;
+				}
+		}
+		// delete
+		else if (strcmp(choice, "delete") == 0)
+		{
+			cout << endl;
+			int temp;
+			cout << "Please enter ID of contact to delete (-1 to go back)" << endl;
+			cin >> temp;
+			if (temp != -1 && numbers[temp] != ""){
+				numbers[temp][0] = '\0';
+				names[temp][0] = '\0';
+			}
+		}
+		// update
+		else if (strcmp(choice, "update") == 0)
+		{
+			int temp;
+			cout << "Please enter ID of contact to update (-1 to go back)" << endl;
+			cin >> temp;
+			if (temp != -1 && numbers[temp][0] != '\0') {
+				cout << "Press (1) to update number number - Press (2) to update name" << endl;
+				int option;
+				cin >> option;
+				switch(option) {
+					case 1:	{
+						cout << "Please enter updated contact number" << endl;
+						cin.ignore();
+						cin.getline(numbers[temp], 50);
+						//cin >> numbers[option];
+						break;
+					}
+					case 2:	{
+						cout << "Please enter new contact name" << endl;
+						cin.ignore();
+						cin.getline(names[temp], 50);
+						//cin >> names[option];
+						break;	
+					}
+				}
+			} 
+		}
+		// search
+		else if (strcmp(choice, "search") == 0)
+		{
+			char search_name[50]; bool flag = false;
+			cout << "Please enter name to search for" << endl;
+			cin.ignore();
+			cin.getline(search_name, 50);
+			//cin >> search_name;
+			for(int i=0; i < CONTACTS; i++)
+			{
+				if(stringContains(names[i], search_name) || stringContains(numbers[i], search_name)){
+					print_contact(i);
+					cout << endl;
+				}
+			}
+		}
+		// sort
+		else if (strcmp(choice, "sort") == 0)
+		{
+			for(int i = 0; i < CONTACTS; i++){
+				for(int j = i+1; j < CONTACTS; j++){
+					if(strcmp(names[i], names[j]) > 0 && names[j][0] != '\0'){
+						char temp_num[50];
+						char temp_name[50];
+
+						strcpy(temp_num, numbers[i]);
+						strcpy(temp_name, names[i]);
+
+						strcpy(numbers[i], numbers[j]);
+						strcpy(names[i], names[j]);
+
+						strcpy(numbers[j], temp_num);
+						strcpy(names[j], temp_name);
+					}
+				}
+			}
+
+			cout << "Contacts sorted.\n";
+		}
+		// display
+		else if (strcmp(choice, "display") == 0)
+		{
+			cout << endl;
+			for (int i=0; i < CONTACTS;i++)
+				if (numbers[i][0] != '\0') {
+					print_contact(i);
+					cout << endl;
+				}
+		}
+		// end
+		cout << endl << "Enter command: (add) (delete) (update) (search) (display) (exit)" << endl;
+		cin.getline(choice, 15);
+	}
+	return 0;
+}
+
+
+void print_contact(int idx) 
+{
+	cout << "ID: " << idx << "  - NUMBER: " << numbers[idx] << " - NAME: ";
+	for(int i=0; i < 50; i++)
+		cout << names[idx][i];
+}
+
+bool stringContains(char str[], char term[]){
+        int stlen = strlen(str);
+        int termlen = strlen(term);
+
+        for(int i = 0; i <= stlen-termlen; i++){
+                bool flag = true;
+                for(int j = 0; j < termlen; j++){
+                        if(str[i+j] != term[j])
+                        {
+                                flag = false;
+                                break;
+                        }
+                }
+                if(flag)
+			return true;
+        }
+
+        return false;
+}
