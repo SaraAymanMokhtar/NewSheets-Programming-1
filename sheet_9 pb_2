@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int m[]= {3,4,5,2};
+    int *p;
+    p = m;
+    cout << *p << '\t' << *(p+1) << '\t' << p[2] << '\t' << *(m+3) << endl;
+
+    cout << p << '\t' << (p+1) << '\t' << &p[2] << '\t' << (m+3) << endl;
+
+    p = &m[1];
+
+    cout << *p << '\t' << (p-m) << '\t' << (int)p - (int)m << endl;
+    return 0;
+}
