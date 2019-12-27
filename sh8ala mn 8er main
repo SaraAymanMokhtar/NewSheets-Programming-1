@@ -26,8 +26,8 @@ int main()
     add( "nada", "01016960096");
     add( "sama", "01016960096");
 
-    sorti();
-    cout<< "after sort"<< endl;
+
+
     print();
     return 0;
 }
@@ -130,14 +130,15 @@ void update(char name[20], char num[20])
 void sorti()
 {
     person* ptr_1 = head;
-    person* ptr_2 = ptr_1->next;
+
 
     while(ptr_1-> next != NULL)
     {
-        cout << ptr_1->name;
+        person* ptr_2 = ptr_1->next;
+
         while(ptr_2 != NULL)
         {
-            cout << ptr_2->name;
+
             if(strcmp(ptr_1->name , ptr_2->name) > 0)
             {
                 char *temp = new char[20];
