@@ -1,0 +1,193 @@
+#include <iostream>
+#include <cstring>
+
+
+using namespace std;
+
+struct person
+{
+    char *name = new char [20];
+    char *num = new char [20];
+    struct person *next;
+};
+person* head = NULL;
+
+void sorti();
+void print();
+void add( char name[20], char num[20]);
+void delete_entry(char name[20]);
+void search_entry(char name[20]);
+void update(char name[20], char num[11]);
+
+
+int main()
+{
+    person *start = NULL;
+    add( "nada", "01016960096");
+    add( "sama", "01016960096");
+
+    sorti();
+    cout<< "after sort"<< endl;
+    print();
+    return 0;
+}
+void print()
+{
+    person* ptr;
+    ptr = head;
+    while(ptr != NULL)
+    {
+        cout<< ptr->name << " " << ptr->num <<endl;
+        ptr = ptr->next;
+    }
+}
+void add(char name[20], char num[20] )
+{
+    person *x = new struct person[sizeof(struct person)];
+    x->name = name;
+    x->num = num;
+    x->next = head;
+    head = x;
+
+}
+void delete_entry(char name[20])
+{
+    person* ptr;
+    ptr = head;
+    person* ptr_previous = NULL;
+    if(head == NULL)
+    {
+        cout << "the list is empty"<< endl;
+        return;
+    }
+    while(ptr != NULL)
+    {
+        if(strcmp(ptr->name, name) == 0)
+        {
+            if(ptr_previous == NULL)
+            {
+                head = ptr->next;
+                delete ptr;
+                return;
+            }
+            ptr_previous->next = ptr->next;
+            delete ptr;
+            return;
+        }
+        ptr_previous = ptr;
+        ptr = ptr->next;
+    }
+    cout << "doesn't exist" << endl;
+}
+void search_entry(char name[20])
+{
+    if(head == NULL)
+    {
+        cout << "the list is empty"<< endl;
+        return;
+    }
+    person* ptr;
+    ptr = head;
+    while(ptr != NULL)
+    {
+        if(strcmp(ptr->name, name) == 0)
+        {
+            cout << ptr->name << "   " << ptr->num << endl;
+            return;
+
+        }
+        ptr = ptr->next;
+
+    }
+    cout<<"not found"<<endl;
+    return;
+}
+void update(char name[20], char num[20])
+{
+
+    if(head == NULL)
+    {
+        cout << "the list is empty"<< endl;
+        return;
+    }
+    person* ptr;
+    ptr = head;
+    while(ptr != NULL)
+    {
+        if(strcmp(ptr->name, name) == 0)
+        {
+            ptr->num = num;
+            cout << ptr->name << "   " << ptr->num << endl;
+            return;
+
+        }
+        ptr = ptr->next;
+
+    }
+    cout<<"not found"<<endl;
+    return;
+}
+void sorti()
+{
+    person* ptr_1 = head;
+    person* ptr_2 = ptr_1->next;
+
+    while(ptr_1-> next != NULL)
+    {
+        cout << ptr_1->name;
+        while(ptr_2 != NULL)
+        {
+            cout << ptr_2->name;
+            if(strcmp(ptr_1->name , ptr_2->name) > 0)
+            {
+                char *temp = new char[20];
+                temp = ptr_1->name;
+                ptr_1->name=  ptr_2->name;
+                ptr_2->name = temp;
+                print();
+
+                temp = ptr_1->num;
+                ptr_1->num=  ptr_2->num;
+                ptr_2->num = temp;
+                print();
+                delete [] temp;
+            }
+            ptr_2 = ptr_2->next;
+        }
+        ptr_1 = ptr_1->next;
+    }
+
+   /* for(ptr_1 = head; ptr_1-> next != NULL; ptr_1 = ptr_1->next)
+
+        cout << "first loop" <<endl;
+                cout << head->name <<endl;
+                                cout << ptr_1->name <<endl;
+
+
+        print();
+        for( ptr_2 = ptr_1->next; ptr_2 != NULL ; ptr_2 = ptr_2->next )
+        {
+            cout << "second loop" <<endl;
+
+            cout<< "sama" <<endl;
+        int x = strcmp( (ptr_1->name) , (ptr_2->name));
+        cout <<x;
+
+            if(strcmp(ptr_1->name , ptr_2->name) > 0)
+            {
+                char temp[20];
+
+                strcpy(temp, ptr_1->name);
+                strcpy(ptr_1->name, ptr_2->name);
+                strcpy(ptr_2->name, temp);
+                print();
+
+                strcpy(temp, ptr_1->num);
+                strcpy(ptr_1->num, ptr_2->num);
+                strcpy(ptr_2->num, temp);
+                print();
+            }
+        } */
+
+
+}
