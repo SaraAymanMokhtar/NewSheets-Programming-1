@@ -22,19 +22,74 @@ void update(char name[20], char num[11]);
 
 int main()
 {
-    person *start = NULL;
-    add( "nada", "01016960096");
-    add( "sama", "01016960096");
+
+    while(true)
+    {
+        cout<< "Enter one of these: Add , Delete, Update, Search, Print, Sort, or 0 to end " <<endl;
+        char input[20];
+        cin.getline(input, 20, '\n');
+        if(strcmp(input,"Add") == 0)
+        {
+            char *nameA = new char[20];
+            char *numA = new char[20];
+            cout << "enter name and telephone" <<endl;
+            cin.getline(nameA, 20 , '\n');
+            cin.getline(numA, 20 , '\n');
+            add( nameA , numA );
 
 
+        }
+        if(strcmp(input,"Update") == 0)
+        {
+            char *nameA = new char[20];
+            char *numA = new char[20];
+            cout << "enter name and Updated telephone" <<endl;
+            cin.getline(nameA, 20 , '\n');
+            cin.getline(numA, 20 , '\n');
+            update( nameA , numA );
 
-    print();
+
+        }
+        else if(strcmp(input,"Delete") == 0)
+        {
+            char nameB[20];
+
+            cout << "enter name " <<endl;
+            cin.getline(nameB, 20 , '\n');
+
+            delete_entry( nameB );
+        }
+        else if(strcmp(input,"Search") == 0)
+        {
+            char nameC[20];
+            cout << "enter name " <<endl;
+            cin.getline(nameC, 20 , '\n');
+            search_entry( nameC );
+        }
+        else if(strcmp(input,"Print") == 0)
+        {
+            print();
+        }
+        else if(strcmp(input,"Sort") == 0)
+        {
+            sorti();
+        }
+        else if(strcmp(input, "0") == 0){
+            break;
+        }
+    }
+
     return 0;
 }
 void print()
 {
     person* ptr;
     ptr = head;
+     if(head == NULL)
+    {
+        cout << "the list is empty"<< endl;
+        return;
+    }
     while(ptr != NULL)
     {
         cout<< ptr->name << " " << ptr->num <<endl;
