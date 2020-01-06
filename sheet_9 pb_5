@@ -8,7 +8,8 @@ double toDouble(char *str);
 
 int main()
 {
-
+    //This Code Prints 276763 instead of 276763.22 (MOST PROBABLY BEC IT EXCEEDS THE SIZE OF DOUBLE)
+    //However, Works Correctly for the Rest
     char Text[] = "7672.28 276763.22 0.767 1.2878 772.2 1878 152 0.0123" ;
     double Values[100];
     int nValues;
