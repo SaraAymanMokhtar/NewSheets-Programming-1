@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cstring>
+#include <cmath>
+
+using namespace std;
+int GetValues (char *Text, double *Values);
+double toDouble(char *str);
+
+int main()
+{
+
+    char Text[] = "7672.28 276763.22 0.767 1.2878 772.2 1878 152 0.0123" ;
+    double Values[100];
+    int nValues;
+    nValues = GetValues(Text, Values);
+   // cout << "number of values is " << nValues;
+    for(int i = 0 ; i < nValues; i++)
+       cout << Values[i] <<endl;
+
+
+    return 0;
+}
+double toDouble(char *str)
+{
+    int len = strlen(str);
+    double sumW = 0;
+    double sumD = 0;
+    int i;
+    bool isDecimal = false;
+    for(i = 0 ; i < len; i++)
+        if(str[i] == '.')
+        {
+            isDecimal = true;
+            break;
+        }
+
+    if (isDecimal)
+    {
+        for(int j = 0 ; j< i; j++)
+                sumW += (str[j] - '0')* pow(10, i - 1 - j);
+        for(int z = i + 1 ; z < len; z++)
+                sumD += (str[z] - '0')* pow(10, -(z - i));
+        return sumD + sumW;
+
+    }
+    else{
+            for(int k = 0 ; k< len; k++)
+                sumW += (str[k] - '0')* pow(10, len - 1 - k);
+            return sumW;
+    }
+}
+int GetValues (char *Text, double *Values)
+{
+    int nValues = 0;
+    char *tok = strtok(Text, " ");
+
+    while(tok != NULL)
+    {
+        Values[nValues] = toDouble(tok);
+        tok = strtok(NULL, " ");
+        nValues ++;
+
+    }
+
+    return nValues;
+}
