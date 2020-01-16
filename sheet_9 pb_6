@@ -8,6 +8,7 @@ double toDouble(char *str);
 
 int main()
 {
+    //Without strtok
     //This Code Prints 276763 instead of 276763.22 (MOST PROBABLY BEC IT EXCEEDS THE SIZE OF DOUBLE)
     //However, Works Correctly for the Rest
     char Text[] = "7672.28 276763.22 0.767 1.2878 772.2 1878 152 0.0123" ;
@@ -64,12 +65,13 @@ int GetValues (char *Text, double *Values)
             kot[counter] = Text[i];
             counter ++;
         }
-        else if( Text[i] == ' ')
+        else
         {
-            kot[counter + 1] = NULL;
+            kot[counter ] = NULL;
             Values[nValues] = toDouble(kot);
             nValues ++;
             counter = 0;
+
 
         }
     }
