@@ -1,0 +1,24 @@
+
+#include <iostream>
+
+using namespace std;
+
+int HCD(int num1, int num2);
+int main()
+{
+    int x, y;
+    cout << "enter 2 numbers to calculate its HCD (biggest number first)" << endl;
+    cin >> x;
+    cin >> y;
+    cout << "the greatest common divisor is " << HCD(x,y);
+
+
+    return 0;
+}
+int HCD(int a, int b)
+{
+int k = a%b;
+    if( a%b == 0)
+        return b;
+    else return HCD(b, a % b);
+}
