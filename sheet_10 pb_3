@@ -2,7 +2,11 @@
 #include <cstring>
 using namespace std;
 //To check if it works change number of students "num" to 3 for example
+
+//number of students 
 int num = 50;
+
+//Defining the struct 
 struct student
 {
     char name[50];
@@ -13,9 +17,9 @@ struct student
 };
 int main()
 {
+    //Making an array of struct objects
     student arr[num];
-    student emptyy;
-    int x;
+    //Looping to fill each struct with user input
     for(int i = 0 ; i < num ; i++)
     {
         cout << "for student  number " << i+1 << endl;
@@ -23,6 +27,8 @@ int main()
         cin >> arr[i].name;
         cout << endl <<"ID : " ;
         cin >> arr[i].ID;
+        //looping to fill each student's five test marks 
+        //Also calculating sum in variable called average
         for(int j = 0 ; j < 5 ; j++)
         {
             cout << "text " << j << " mark : ";
@@ -30,7 +36,10 @@ int main()
             arr[i].average += arr[i].scores[j];
             cout << endl;
         }
+        //Calculating average 
         arr[i].average /= 5.0;
+        
+        //Calculating grade letter
         if(arr[i].average > 90 || arr[i].average == 90)
             arr[i].gradeLetter = 'A';
         else if(arr[i].average > 80 || arr[i].average == 80)
@@ -42,23 +51,23 @@ int main()
         else
             arr[i].gradeLetter = 'F';
     }
-
-
-
+    //Sorting the list of struct objects by students names (Alphabetically)
     for (int i = 0 ; i < num - 1 ; i ++)
     {
         for(int j = i + 1; j < num; j++ )
         {
+            //Swapping two structures
             if(strcmp(arr[i].name , arr[j]. name) > 0)
             {
-
-                emptyy = arr[i];
+                student temp;
+                temp = arr[i];
                 arr[i] = arr[j];
-                arr[j] = emptyy;
+                arr[j] = temp;
 
             }
         }
     }
+    //Displaying the record of all students after sorting
      for(int j = 0 ; j < num ; j++)
     {
         cout << endl << endl;
