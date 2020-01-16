@@ -1,0 +1,40 @@
+
+#include <iostream>
+
+using namespace std;
+
+int noVowels (char sentence[100], int index, int num_vowels );
+int main()
+{
+    char str[100];
+    cout << "enter a sting" << endl;
+    cin.getline(str, 100, '\n') ;
+
+    cout << "the number of vowels is " << noVowels(str,0, 0);
+
+
+    return 0;
+}
+int noVowels (char sentence[], int index, int num_vowels )
+{
+    char c = sentence[index];
+    if(sentence[index] == NULL )
+        return num_vowels;
+    else if( sentence[index] =='a'
+            || sentence[index] =='o'
+            || sentence[index] =='i'
+            || sentence[index] =='u'
+            || sentence[index] =='e')
+        {
+            index ++;
+            num_vowels ++;
+            return noVowels(sentence, index, num_vowels );
+        }
+
+    else
+    {
+        index ++;
+         return noVowels(sentence, index, num_vowels );
+    }
+}
+
