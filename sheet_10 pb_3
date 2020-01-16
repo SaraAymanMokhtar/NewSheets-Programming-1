@@ -1,0 +1,59 @@
+#include <iostream>
+#include <iomanip>
+#include <conio.h>
+#include <cstdlib>
+using namespace std;
+//To check if it works change number of students to 2 for example
+int num = 50;
+struct student
+{
+    char name[50];
+    int ID;
+    float scores[5];
+    float average = 0;
+    char gradeLetter;
+};
+int main()
+{
+    student arr[num];
+    int x;
+    for(int i = 0 ; i < num ; i++)
+    {
+        cout << "for student  number " << i+1 << endl;
+        cout << endl << "name " ;
+        cin >> arr[i].name;
+        cout << endl <<"ID : " ;
+        cin >> arr[i].ID;
+        for(int j = 0 ; j < 5 ; j++)
+        {
+            cout << "text " << j << " mark : ";
+            cin >> arr[i].scores[j];
+            arr[i].average += arr[i].scores[j];
+            cout << endl;
+        }
+        arr[i].average /= 5.0;
+        if(arr[i].average > 90 || arr[i].average == 90)
+            arr[i].gradeLetter = 'A';
+        else if(arr[i].average > 80 || arr[i].average == 80)
+            arr[i].gradeLetter = 'B';
+        else if(arr[i].average > 70 || arr[i].average == 70)
+            arr[i].gradeLetter = 'C';
+        else if(arr[i].average > 60 || arr[i].average == 60)
+            arr[i].gradeLetter = 'D';
+        else
+            arr[i].gradeLetter = 'F';
+    }
+
+     for(int j = 0 ; j < num ; j++)
+    {
+        cout << endl << endl;
+        cout << arr[j].name << endl;
+        cout << arr[j].ID << endl;
+        cout << arr[j].average << endl;
+        cout << arr[j].gradeLetter << endl;
+
+    }
+
+
+    return 0;
+}
