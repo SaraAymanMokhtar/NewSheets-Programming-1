@@ -1,0 +1,42 @@
+#include <iostream>
+#include <iomanip>
+#include <conio.h>
+#include <cstdlib>
+using namespace std;
+
+struct movie
+{
+    char movietitle[50];
+    char actress[50];
+    int price ;
+};
+int main()
+{
+    movie arr[5];
+    int maximum =0;
+    int index = -1;
+    for(int i = 0 ; i < 5 ; i++)
+    {
+        cout << "for movie  number " << i+1 << endl;
+        cout << endl << "movie title : " ;
+        cin>>arr[i].movietitle;
+        cout << endl <<"actress name : " ;
+        cin >> arr[i].actress;
+        cout << endl << "price : ";
+        cin >> arr[i].price;
+        cout << endl <<endl;
+
+    }
+     for(int j = 0 ; j < 5 ; j++)
+    {
+        if(arr[j].price > maximum)
+        {
+            maximum = arr[j].price;
+            index = j;
+        }
+
+    }
+    cout << "The most expensive movie is " << arr[index].movietitle << endl;
+
+    return 0;
+}
